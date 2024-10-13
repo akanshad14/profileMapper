@@ -6,7 +6,7 @@ import Map from './Map'
 import { Loader } from 'lucide-react'
 
 const fetchProfiles = async () => {
-  const response = await fetch('profilemapper-production.up.railway.app/api/profiles');
+  const response = await fetch('https://profilemapper-production.up.railway.app/api/profiles');
   if (!response.ok) {
     throw new Error('Failed to fetch profiles');
   }

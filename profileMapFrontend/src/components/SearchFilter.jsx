@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 function SearchFilter({ searchTerm, setSearchTerm, filterCriteria, setFilterCriteria }) {
   const [locations, setLocations] = useState([]); // State to hold location options
@@ -11,7 +11,7 @@ function SearchFilter({ searchTerm, setSearchTerm, filterCriteria, setFilterCrit
     setLoading(true); // Start loading
     setError(null); // Reset error state
     try {
-      const response = await fetch('profilemapper-production.up.railway.app/api/locations'); // Adjust this URL according to your backend
+      const response = await fetch('https://profilemapper-production.up.railway.app/api/locations'); // Adjust this URL according to your backend
       if (!response.ok) {
         throw new Error('Failed to fetch locations');
       }

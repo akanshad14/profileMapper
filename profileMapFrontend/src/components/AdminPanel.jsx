@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { PlusCircle, Edit2, Trash2, X } from 'lucide-react';
 
 const fetchProfiles = async () => {
-  const response = await fetch('profilemapper-production.up.railway.app/api/profiles');
+  const response = await fetch('https://profilemapper-production.up.railway.app/api/profiles');
   if (!response.ok) {
     throw new Error('Error fetching profiles');
   }
@@ -20,7 +20,7 @@ export default function AdminPanel() {
   const { data: profiles, isLoading, error } = useQuery('profiles', fetchProfiles);
   
   const addProfileMutation = useMutation(
-    (newProfile) => fetch('profilemapper-production.up.railway.app/api/create', {
+    (newProfile) => fetch('https://profilemapper-production.up.railway.app/api/create', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(newProfile),
@@ -34,7 +34,7 @@ export default function AdminPanel() {
   );
 
   const updateProfileMutation = useMutation(
-    (updatedProfile) => fetch(`profilemapper-production.up.railway.app/api/update/${updatedProfile.id}`, {
+    (updatedProfile) => fetch(`https://profilemapper-production.up.railway.app/api/update/${updatedProfile.id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(updatedProfile),
@@ -48,7 +48,7 @@ export default function AdminPanel() {
   );
 
   const deleteProfileMutation = useMutation(
-    (id) => fetch(`profilemapper-production.up.railway.app/api/delete/${id}`, { method: 'DELETE' }).then(res => {
+    (id) => fetch(`https://profilemapper-production.up.railway.app/api/delete/${id}`, { method: 'DELETE' }).then(res => {
       if (!res.ok) {
         throw new Error('Error deleting profile');
       }

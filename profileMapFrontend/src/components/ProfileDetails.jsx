@@ -1,10 +1,10 @@
 import { useParams, Link } from 'react-router-dom';
 import { useQuery } from 'react-query';
-import { MapPin, Phone, Heart, ArrowLeft, Loader } from 'lucide-react';
+import { MapPin, Phone, ArrowLeft, Loader } from 'lucide-react';
 import Map from './Map';
 
 const fetchProfile = async (id) => {
-  const response = await fetch(`profilemapper-production.up.railway.app/api/profile/${id}`);
+  const response = await fetch(`https://profilemapper-production.up.railway.app/api/profile/${id}`);
   if (!response.ok) {
     throw new Error('Profile not found');
   }
